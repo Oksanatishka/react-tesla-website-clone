@@ -1,0 +1,71 @@
+---------------------- Clean up ----------------------
+> cd tesla-clone
+> npx create-react-app .
+> yarn start    // to fire up the react server
+
+Delete:
+    - everything inside <div className="App"> in /src/App.js
+    - import logo from './logo.svg' in /src/App.js;
+    - file /src/logo.svg
+    - file /src/setupTests.js
+    - file /src/App.test.js
+    - everything inside App.css
+
+Add:
+    - * {margin: 0;} in index.css
+    - git add . -> git commit 'Clean up'
+
+---------------------- Header + assets ----------------------
+Download /src/assets and /src/fonts
+Create /src/components/Header.js, /src/components/Header.css
+In /src/components/Header.js:
+    - rsc
+    - import './Header.css'
+    - add className='header' to <div>
+    - add code for logo
+    - add code for center
+    - add code for right portion
+    - import Header component in App.js
+In /src/index.css:
+    @font-face {
+        font-family: 'iCielMedium';
+        src: local('iCielMedium', url('./fonts/iCiel-Medium.ttf'), format('truetype'));
+        font-weight: normal;
+    }
+    body {
+        ...
+        font-family: 'iCielMedium', ... // add it the first priority
+        ...
+    }
+Add styling in /Header.css
+- git add . -> git commit 'Header + assets'
+
+---------------------- Main items ----------------------
+Create /src/components/Item.css and /src/components/Item.js -> code it.
+    - In App.js add imports of images + code
+    - In Item.js add props
+Create /src/components/Button.js -> rsc
+    - import it in Item.js
+
+> yarn add @material-ui/core
+> yarn add @material-ui/icons
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+- git add . -> git commit 'item'
+
+---------------------- Buttons ----------------------
+Add code to Button.js
+Create Button.css
+
+---------------------- Scroll Snapping ----------------------
+In App.css
+    .app__itemsContainer {
+        scroll-snap-type: y mandatory;
+        overflow: auto;
+        height: 100vh;
+    }
+In Item.css
+    .item {
+        ...
+        scroll-snap-align: start;
+    }
